@@ -65,12 +65,23 @@ def vote_stark(request):
         <a href="/">Back to voting page</a>
     ''')
 
+def vote_lannister(request):
+    print('house lannister is getting a vote')
+    return HttpResponse('''
+        <link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura-vader.css" />
+
+        <h2>Your vote was recorded</h2>
+        <hr />
+        <a href="/">Back to voting page</a>
+    ''')
+
 urlpatterns = [
     path('', index),
     path('my-favorite-characters', characters),
     path('top-episodes', favorite_episodes),
     path('vote/', house_voting),
     path('vote/house-stark', vote_stark),
+    path('vote/lannister', vote_lannister),
 ]
 
 
