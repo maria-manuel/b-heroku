@@ -51,6 +51,9 @@ def house_voting(request):
         <link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura-vader.css" />
 
         <h1>Vote for your favorite Game of Thrones house</h1>
+                        
+        <p>Stark ''' + str(votes['stark']) + '''</p>
+                        
         <a href="/vote/house-stark">House Stark: Winter is coming!</a> <br/>
         <a href="/vote/house-lannister">House Lannister: Hear me roar!</a> <br/>
         <a href="/vote/house-targaryen">House Targaryen: Fire and blood!</a> <br/>
