@@ -9,7 +9,7 @@ def index(request):
         <h1>Game of Thrones Fan Page</h1>
         <a href="/my-favorite-characters">My favorite GoT characters</a> <br />
         <a href="/top-episodes">Top GoT Episodes</a> <br />
-        <a href="/">Voting page</a> <br />
+        <a href="/vote/">Back to voting page</a>
     ''')
 
 
@@ -26,6 +26,7 @@ def characters(request):
         </ul>
         <hr />
         <a href="/">Back to home page</a>
+        <a href="/vote/">Back to voting page</a>
     ''')
 
 
@@ -41,7 +42,7 @@ def favorite_episodes(request):
         </ol>
         <hr />
         <a href="/">Back to home page</a> <br/>
-        <a href="/">Back to voting page</a>
+        <a href="/vote/">Back to voting page</a>
     ''')
 
 def house_voting(request):
@@ -55,7 +56,6 @@ def house_voting(request):
         <a href="/vote/house-targaryen">House Targaryen: Fire and blood!</a> <br/>
         <hr />
         <a href="/">Back to home page</a> <br/>
-        <a href="/">Back to voting page</a>
     ''')
 
 def vote_stark(request):
@@ -68,7 +68,7 @@ def vote_stark(request):
         <h2>Your vote was recorded</h2>
         <hr />
         <a href="/">Back to home page</a> <br/>
-        <a href="/">Back to voting page</a>
+        <a href="/vote/">Back to voting page</a>
     ''')
 
 def vote_lannister(request):
@@ -86,6 +86,8 @@ def vote_lannister(request):
 
 def vote_targaryen(request):
     print('house targaryen is getting a vote')
+    votes['targaryen'] = votes['targaryen'] + 1  # add one to targaryen
+    print('total votes for targaryen:', votes['targaryen'])
     return HttpResponse('''
         <link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura-vader.css" />
 
