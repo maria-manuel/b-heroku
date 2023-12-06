@@ -42,11 +42,22 @@ def favorite_episodes(request):
         <a href="/">Back to home page</a>
     ''')
 
+def house_voting(request):
+    print('voting page getting visited')
+    return HttpResponse('''
+        <link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura-vader.css" />
+
+        <h1>Vote for your favorite TV show</h1>
+
+        <hr />
+        <a href="/">Back to home page</a>
+    ''')
 
 urlpatterns = [
     path('', index),
     path('my-favorite-characters', characters),
     path('top-episodes', favorite_episodes),
+    path('vote/', house_voting)
 ]
 
 
