@@ -53,6 +53,8 @@ def house_voting(request):
         <h1>Vote for your favorite Game of Thrones house</h1>
                         
         <p>Stark ''' + str(votes['stark']) + '''</p>
+        <p>Lannister ''' + str(votes['lannister']) + '''</p>
+        <p>Targaryen ''' + str(votes['targaryen']) + '''</p>
                         
         <a href="/vote/house-stark">House Stark: Winter is coming!</a> <br/>
         <a href="/vote/house-lannister">House Lannister: Hear me roar!</a> <br/>
@@ -65,40 +67,19 @@ def vote_stark(request):
     print('house stark is getting a vote')
     votes['stark'] = votes['stark'] + 1  # add one to stark
     print('total votes for stark:', votes['stark'])
-    return HttpResponse('''
-        <link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura-vader.css" />
-
-        <h2>Your vote was recorded</h2>
-        <hr />
-        <a href="/">Back to home page</a> <br/>
-        <a href="/vote/">Back to voting page</a>
-    ''')
+    return HttpResponseRedirect('/vote/')
 
 def vote_lannister(request):
     print('house lannister is getting a vote')
     votes['lannister'] = votes['lannister'] + 1  # add one to lannister
     print('total votes for lannister:', votes['lannister'])
-    return HttpResponse('''
-        <link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura-vader.css" />
-
-        <h2>Your vote was recorded</h2>
-        <hr />
-        <a href="/">Back to home page</a> <br/>
-        <a href="/">Back to voting page</a>
-    ''')
+    return HttpResponseRedirect('/vote/')
 
 def vote_targaryen(request):
     print('house targaryen is getting a vote')
     votes['targaryen'] = votes['targaryen'] + 1  # add one to targaryen
     print('total votes for targaryen:', votes['targaryen'])
-    return HttpResponse('''
-        <link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura-vader.css" />
-
-        <h2>Your vote was recorded</h2>
-        <hr />
-        <a href="/">Back to home page</a> <br/>
-        <a href="/">Back to voting page</a>
-    ''')
+    return HttpResponseRedirect('/vote/')
 
 urlpatterns = [
     path('', index),
