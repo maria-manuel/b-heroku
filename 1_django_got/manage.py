@@ -57,6 +57,8 @@ def house_voting(request):
 
 def vote_stark(request):
     print('house stark is getting a vote')
+    votes['stark'] = votes['stark'] + 1  # add one to stark
+    print('total votes for stark:', votes['stark'])
     return HttpResponse('''
         <link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura-vader.css" />
 
@@ -95,6 +97,11 @@ urlpatterns = [
     path('vote/house-targaryen', vote_targaryen),
 ]
 
+votes = {
+    'stark': 0,
+    'lannister': 0,
+    'targaryen': 0,
+}
 
 
 # Boilerplate -- Don't worry about understanding anything from here down
